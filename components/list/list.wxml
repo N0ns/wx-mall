@@ -1,0 +1,15 @@
+<!--components/list/list.wxml-->
+  <view class="list">
+    <view class="goods-wrap"  wx:key="" wx:for="{{goodslist}}" bindtap="tapGood" data-gid="{{item.goodsId}}">
+      <image class="goods-img" src="https://shopnc-oss.oss-cn-hangzhou.aliyuncs.com/{{item.pictureName}}"></image>
+      <view class="text">
+        <view class="title">
+          <text>{{item.name}}</text>
+        </view>
+        <view class="price">
+          <text class="new">￥{{item.minPrice}}</text>
+          <text class="old">￥{{item.marketPrice}}</text>
+        </view>
+      </view>
+    </view>
+  </view>

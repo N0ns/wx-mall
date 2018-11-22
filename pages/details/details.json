@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "swipe": "../../components/swipe/swipe",
+    "van-goods-action": "../../components/goods-action/index",
+    "van-goods-action-icon": "../../components/goods-action-icon/index",
+    "van-goods-action-button": "../../components/goods-action-button/index",
+    "van-button": "../../components/button/index",
+    "van-dialog":"../../components/dialog/index"
+    
+
+    
+  }
+}

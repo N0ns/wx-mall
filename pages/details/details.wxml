@@ -1,0 +1,44 @@
+<!--pages/details/details.wxml-->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" style='height:700rpx'>
+    <block  >
+      <swiper-item wx:for="{{good.itemPictureDtos}}" wx:key="{{item.itemId}}">
+        <image src="https://shopnc-oss.oss-cn-hangzhou.aliyuncs.com/{{item.name}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="zan-panel">
+    <view style="padding:15px">
+      <text class="title">{{good.name}}</text>
+      <text class="now">￥{{good.minPrice}}</text>
+      <text class="old">￥{{good.maxPrice}}</text>
+    </view>
+  </view>
+    <view class="zan-panel select-wrap" >
+      <van-button  size="large" bindtap="doSelect">
+      <view style="text-align:left;padding-left:12px" class="select">已选</view>
+      <view class="icon"></view>
+      </van-button>
+      
+  </view>
+
+    <view class="zan-panel">
+    <view style="padding: 10px 0;margin-bottom:45px">
+      <view class="zan-panel-title detailtitle">商品详情</view>
+        <image class="template" wx:for="{{good.itemPictureDtos}}"  wx:key="{{index}}"src="https://shopnc-oss.oss-cn-hangzhou.aliyuncs.com/{{item.name}}"></image>
+    </view>
+  </view>
+<!-- 弹出框 -->
+
+    <van-dialog show="{{isShow}}" good="{{good}}" ></van-dialog>
+
+
+
+<van-goods-action >
+  <van-goods-action-icon icon="chat" text="客服" />
+  <van-goods-action-icon icon="cart" text="购物车" bindtap='goToCart'  />
+
+  <van-goods-action-button bindtap='doSelect' text="加入购物车" type="warning" />
+  <van-goods-action-button id="buy" bindtap='doSelect' text="立即购买" />
+</van-goods-action>
+
+

@@ -1,0 +1,155 @@
+@import "../button/index.wxss";
+
+@font-face {
+  font-family: 'zuiicon';
+  src: url('https://b.yzcdn.cn/zui/font/zuiicon-b37948cf5d.eot');
+  src: url('https://b.yzcdn.cn/zui/font/zuiicon-b37948cf5d.eot?#iefix') format('embedded-opentype'),
+       url('https://b.yzcdn.cn/zui/font/zuiicon-b37948cf5d.woff2') format('woff2'),
+       url('https://b.yzcdn.cn/zui/font/zuiicon-b37948cf5d.woff') format('woff'),
+       url('https://b.yzcdn.cn/zui/font/zuiicon-b37948cf5d.ttf') format('truetype')
+}
+.zan-icon::before {
+  font-family: "zuiicon" !important;
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  /* margin-left: .2em; */
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+.zan-dialog__container {
+  /* position: absolute;
+  right: 0;
+  bottom: 0; */
+  width: 100%;
+  background: white;
+  /* transform: translateY(150%);
+  transition: all 0.4s ease; */
+  z-index: 1100;
+}
+.dlog_box {
+  width: 90%;
+  padding: 10px 0;
+  margin: 0 auto;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.zan-label {
+  display: inline-block;
+  font-size: 12px;
+  height: 28px;
+  line-height: 28px;
+  color: #333;
+  border: 1rpx solid #999;
+  padding: 0px 10px;
+  border-radius: 2px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  text-align: center;
+}
+.zan-label--primary {
+  color: #fff;
+  background: #f44;
+  border: 1rpx solid #f44;
+}
+.zan-label--disabled {
+  color: #cacaca;
+  background: #eee;
+  border: 1rpx solid #e5e5e5;
+}
+.zan-label--small {
+  font-size: 11px;
+  height: 16px;
+  line-height: 16px;
+  padding: 0px 3px;
+}
+.zan-label--plain.zan-label--primary {
+  color: #f44;
+  background: #fff;
+}
+
+.zan-quantity {
+  color: #666;
+}
+.zan-quantity view {
+  display: inline-block;
+  line-height: 20px;
+  padding: 5px 0;
+  text-align: center;
+  min-width: 40px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-size: 12px;
+  border: 1rpx solid #999;
+}
+.zan-quantity .zan-quantity__minus {
+  border-right: none;
+  border-radius: 2px 0 0 2px;
+}
+.zan-quantity .zan-quantity__text {
+  border: 1rpx solid #999;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  height: 30px;
+  width: 40px;
+  font-size: 12px;
+  line-height: 30px;
+}
+.zan-quantity .zan-quantity__plus {
+  border-left: none;
+  border-radius: 0 2px 2px 0;
+}
+.zan-quantity .zan-quantity--disabled {
+  background: #f8f8f8;
+  color: #bbb;
+  border-color: #e8e8e8;
+}
+.zan-quantity--small view {
+  min-width: 36px;
+  line-height: 18px;
+}
+.zan-quantity--small .zan-quantity__text {
+  width: 36px;
+  line-height: 28px;
+  height: 28px;
+}
+
+.zan-icon-close {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  padding: 5px 5px;
+}
+.zan-icon-close:before { content: '\e806'; }
+
+.van-button--disabled {
+  opacity: 0.5;
+}
+

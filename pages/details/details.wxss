@@ -1,0 +1,155 @@
+/* pages/details/details.wxss */
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+.zan-panel {
+  background: #fff;
+  box-sizing: border-box;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.zan-panel-title {
+  font-size: 14px;
+  line-height: 1;
+  color: #999;
+  padding: 20px 15px 0 15px;
+}
+
+
+.zan-panel--without-margin-top {
+  margin-top: 0;
+}
+.now {
+  display: inline-block;
+  color: #f44;
+  font-size: 20px;
+  font-weight: bold;
+  height: 24px;
+  line-height: 24px;
+  margin-right: 5px;
+}
+
+.old {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  color: #666;
+  font-size: 14px;
+  height: 24px;
+  line-height: 24px;
+  text-decoration: line-through;
+}
+.title {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.zan-cell {
+  position: relative;
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
+  font-size: 14px;
+}
+
+.zan-cell::after {
+  position: absolute;
+  left: 15px;
+  right: 0;
+  bottom: 0;
+  border-top: 1rpx solid #e5e5e5;
+  background: #e5e5e5;
+  content: ' ';
+}
+.zan-cell__bd {
+  flex: 1;
+}
+.zan-cell__ft {
+  position: relative;
+  text-align: right;
+  color: #666;
+}
+
+.zan-cell--last-child::after,
+.zan-cell:last-child::after {
+  display: none;
+}
+
+.zan-cell--access .zan-cell__ft {
+  padding-right: 13px;
+}
+
+.zan-cell--access .zan-cell__ft::after {
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  content: " ";
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #c8c8c8;
+  border-style: solid;
+  transform: translateY(-50%) matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}
+.zan-cell--switch {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  content: " ";
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #c8c8c8;
+  border-style: solid;
+  transform: translateY(-50%) matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}
+.detailtitle {
+  font-size: 15px;
+  padding: 0px 15px 10px 15px;
+}
+.select {
+  color: #999;
+  margin-right: 10px;
+}
+.template{
+  display:block;
+}
+
+.dlog_img {
+  float: left;
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 10px;
+}
+
+.dlog_price {
+  line-height: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #f44;
+}
+
+.dlog_count > text, .dlog_selected > text {
+  color: #999;
+}
+
+.dlog_count {
+  line-height: 22px;
+}
+
+.dlog_title {
+  width: 100%;
+  margin: 15px 0;
+  margin-top: 0;
+  color: #999;
+}

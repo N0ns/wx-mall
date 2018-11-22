@@ -1,0 +1,15 @@
+    <view class="page-section page-section-spacing swiper">
+      <swiper
+        indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px" indicator-active-color= "#FFFFFF">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <image class="banner" src="{{item}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view>
+        <image class="ad" src="https://img13.yiguoimg.com/d/items/2018/181119/9710946729108851_1125x344.gif?w=1125&h=344"></image>
+      </view>
+      
+    </view>

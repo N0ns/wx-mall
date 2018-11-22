@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "van-search": "../../components/search/index",
+        "swipe":"../../components/swipe/swipe",
+        "list": "../../components/list/list"
+      }
+}
