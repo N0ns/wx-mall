@@ -117,10 +117,11 @@ VantComponent({
     addToCart(){
       var obj = {}
       var app = getApp()
-      // console.log(this.data.quantity)
       obj.id = this.data.good.itemId
       obj.qty = this.data.quantity
-      obj.value = false
+      obj.checked = false
+      obj.min = 1
+      obj.max = this.data.good.stockNumber*1
       var swicth = false
       var len = app.globalData.cartGoods.length
       for(var i=0;i<len;i++){
@@ -130,6 +131,7 @@ VantComponent({
         }
       }
       if(i===len){
+        obj.value=len
         app.globalData.cartGoods.push(obj)
       }
         

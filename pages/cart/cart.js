@@ -9,7 +9,9 @@ Page({
     cartGoods: [],
     arr:[],
     checkAll:false,
-    total:0
+    total:0,
+    isEdit:false
+    
 
   },
 
@@ -50,7 +52,10 @@ Page({
       
     }
     
-    console.log(app.globalData.cartGoods)
+    this.setData({
+      checkAll:false
+    })
+    this.upDateTotal()
   },
 
   /**
@@ -110,13 +115,12 @@ Page({
         that.setData({
           cartGoods:arr
         })
-        console.log(that.data.cartGoods)
+
       }
     })
   },
   checkboxChange: function (e) {
     // 子项影响全选
-    console.log(e)
     let allItems = this.data.arr.length;
     // 判断全选的情况
     if (e.detail.value.length == allItems) {
@@ -145,6 +149,83 @@ Page({
     });
     // console.log('checkbox发生change事件，携带value值为：', e.detail.value)
     this.upDateTotal()
+  },
+  checkAll(e) { // 处理全选按钮
+    let arr = this.data.arr;
+    if (e.detail.value == 'checkAll') {
+      for (let i in arr) {
+        arr[i].checked = true;
+        this.setData({
+          arr: arr
+        });
+      }
+    } else {
+      for (let i in arr) {
+        arr[i].checked = false;
+        this.setData({
+          arr: arr
+        });
+      }
+    }
+    let checkAll = this.data.checkAll;
+    this.setData({
+      checkAll: !checkAll
+    });
+    // console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+    this.upDateTotal();
+  },
+
+  upDateTotal() { // 更新总价
+  // console.log(this.data.arr,this.data.cartGoods)
+    let totalPrice = 0;
+    let checkboxItems = this.data.checkboxItems;
+    let len = this.data.arr.length;
+    let arr = this.data.arr
+    let arrSelect = []
+    this.data.cartGoods.forEach((item,index) => {
+      if (arr[index].checked == true) {
+        totalPrice += parseFloat(item.minPrice) * arr[index].qty;
+        this.setData({
+          total: totalPrice.toFixed(2)
+        });
+        arrSelect.push(item)
+      }
+    });
+    if (arrSelect.length == 0) { // 如果全不选总价为0
+      this.setData({
+        total: '0.00'
+      });
+    }
+  },
+  toggleEdit() {
+    let isEdit = this.data.isEdit;
+    this.setData({
+      isEdit: !isEdit
+    });
+  },
+  _handleZanQuantityPlus(e){
+    console.log(e.target.dataset.index)
+    var idx = e.target.dataset.index
+    this.handleQty(idx,1)
+
+  },
+  _handleZanQuantityMinus(e){
+    var idx = e.target.dataset.index
+    this.handleQty(idx, -1)
+  },
+  _handleZanQuantityBlur(e){
+    console.log(e)
+  },
+  handleQty(i,num){
+    var arr = this.data.arr
+    arr[i].qty+=num*1
+    if(arr[i].qty<1){
+      arr[i].qty=1
+    }
+    this.setData({
+      arr
+    })
   }
+  
 
 })

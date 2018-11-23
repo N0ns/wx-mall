@@ -4,4 +4,5 @@
         "swipe":"../../components/swipe/swipe",
         "list": "../../components/list/list"
       }
+
 }

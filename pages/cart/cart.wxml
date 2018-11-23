@@ -29,12 +29,12 @@
 
     <view wx:if="{{!isLoading}}" class="weui-cells weui-cells_after-title" style="margin-top:0">
       <checkbox-group bindchange="checkboxChange">
-        <view class="good-item weui-cell" wx:for="{{cartGoods}}" wx:key="value">
+        <view class="good-item weui-cell" wx:for="{{cartGoods}}" wx:key="index">
           <label>
-            <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+            <checkbox class="weui-check" value="{{index}}" checked="{{arr[index].checked}}" />
             <view class="weui-cell__hd weui-check__hd_in-checkbox">
-              <icon class="weui-icon-checkbox_circle" type="circle" size="28" hidden="{{item.checked}}"></icon>
-              <icon class="my-check iconfont icon-check" hidden="{{!item.checked}}"></icon>
+              <icon class="weui-icon-checkbox_circle" type="circle" size="28" hidden="{{arr[index].checked}}"></icon>
+              <icon class="my-check iconfont icon-check" hidden="{{!arr[index].checked}}"></icon>
             </view>
           </label>
           <view class="good-info weui-cell__bd">
@@ -46,7 +46,33 @@
               <view class="count">x{{arr[index].qty}}</view>
             </view>
             <view wx:if="{{isEdit}}" style="width:100%;">
-              <template is="zan-quantity" data="{{ ...checkboxItems[index].quantity, componentId: 'checkboxItems['+index+'].quantity', size: 'small' }}" />
+              <view class="zan-quantity {{ size === 'small' ? 'zan-quantity--small' : '' }}">
+    <view
+      class="zan-quantity__minus {{  arr[index].qty <=  arr[index].min ? 'zan-quantity--disabled' : '' }}"
+      data-index="{{ index }}"
+      data-quantity="{{ arr[index].qty }}"
+      data-disabled="{{ arr[index].qty <= arr[index].min }}"
+      bindtap="_handleZanQuantityMinus"
+    >-</view>
+    <input
+      class="zan-quantity__text {{ min >= max ? 'zan-quantity--disabled' : '' }}"
+      type="number"
+      data-component-id="{{ componentId }}"
+      data-min="{{ min }}"
+      data-max="{{ max }}"
+      value="{{ arr[index].qty }}"
+      disabled="{{ min >= max }}"
+      bindblur="_handleZanQuantityBlur"
+    ></input>
+    <view
+      class="zan-quantity__plus {{ arr[index].qty >= arr[index].max ? 'zan-quantity--disabled' : '' }}"
+      data-index="{{ index }}"
+      data-quantity="{{ arr[index].qty }}"
+      data-disabled="{{ quantity >= max }}"
+      bindtap="_handleZanQuantityPlus"
+    >+</view>
+  </view>
+      
               <button class="del-btn" bindtap="delGood" data-gid="{{checkboxItems[index].gid}}" data-kid="{{checkboxItems[index].kid}}">删除</button>
             </view>
           </view>

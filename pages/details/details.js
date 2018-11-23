@@ -6,10 +6,10 @@ Page({
    */
 
   data: {
-    background: [],
+    // background: [],
     indicatorDots: true,
     vertical: false,
-    autoplay: true,
+    autoplay: false,
     circular: true,
     interval: 2000,
     duration: 500,

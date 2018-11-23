@@ -1,5 +1,11 @@
-/* pages/types/types.wxss */
-
+@font-face {font-family: "iconfont";
+  src: url('//at.alicdn.com/t/font_aankpi62pohzd7vi.eot?t=1498444319506'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_aankpi62pohzd7vi.eot?t=1498444319506#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_aankpi62pohzd7vi.woff?t=1498444319506') format('woff'), /* chrome, firefox */
+  url('//at.alicdn.com/t/font_aankpi62pohzd7vi.ttf?t=1498444319506') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_aankpi62pohzd7vi.svg?t=1498444319506#iconfont') format('svg'); /* iOS 4.1- */
+}
+@import "../../components/dialog/index.wxss";
 .empty {
   text-align: center;
 }
@@ -28,6 +34,7 @@
   vertical-align: middle;
   color: #f44;
 }
+.icon-check:before { content: "\e88f"; }
 
 .my-checkall {
   display: inline-block;
@@ -144,4 +151,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  /* font-size:16px; */
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
